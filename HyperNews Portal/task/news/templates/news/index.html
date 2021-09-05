@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>{% block title %} Hyper news {% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" target="_blank" href="{% static 'css/base.css' %}">
+  </head>
+  <body>
+  <h2>Hyper news</h2>
+  <form action="" method="get">
+      {% csrf_token %}
+      <label for="q">q</label>
+      <input id="q" value="" name="q" type="text"><br>
+      <button type="submit">Submit</button>
+  </form>
+    {% for key,values in news_json_info.items %}
+    <h4>{{ key }}</h4>
+    <ul>
+      {% for value in values %}
+      <li><a target="_blank" href="/news/{{ value.link }}/">{{value.title }}</a> </li>
+      {% endfor %}
+
+    </ul>
+    {% endfor %}
+  <a target="_blank" href="/news/create/">create</a>
+  </body>
+</html>

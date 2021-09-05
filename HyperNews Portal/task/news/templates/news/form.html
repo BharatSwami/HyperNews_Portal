@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %} Hyper news {% endblock %}</title>
+  </head>
+  <body>
+  <h2>Hyper news form</h2>
+  <form action="" method="post">
+      {% csrf_token %}
+      <label for="title">title</label>
+      <input id="title" value="title" name="title" type="text"><br>
+      <label for="text">text</label>
+      <input id="text" value="text" name="text" type="text"><br>
+      <button type="submit">Submit</button>
+  </form>
+  <a target="_blank" href="/news/">main_link</a>
+  </body>
+</html>
